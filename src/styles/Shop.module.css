@@ -1,0 +1,20 @@
+.container{
+    width: 300px;
+    padding: 2rem;
+    border: 2px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.container img{
+    width: 150px;
+}
+
+.productsContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.title{
+    text-align: center;
+}

@@ -1,0 +1,17 @@
+.container{
+    width: 300px;
+    padding: 2rem;
+    border: 2px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.container img{
+    width: 150px;
+}
+
+.buttons{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
