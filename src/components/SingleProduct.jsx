@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import styles from "../styles/SingleProduct.module.css";
 
 export default function SingleProduct() {
-    const [product, setProduct] = useState("");
+    const [product, setProduct] = useState(undefined);
     const [loading, setLoading] = useState(true);
     const [amount, setAmount] = useState(0);
     const { productId } = useParams();
@@ -17,17 +17,20 @@ export default function SingleProduct() {
         setAmount(a => a + 1);
     }
 
+    let updatedProduct = { ...product, amount: amount };
+
+
     function handleAddToCart() {
-        
+        setProduct(updatedProduct)
+        setCartItems([...cartItems, updatedProduct])
     }
 
     useEffect(() => {
         async function fetchProduct() {
             try {
-                const response = await fetch(`https://fakestoreapi.com/products/${productId}`);
+                const response = await fetch(`https://fakestoreapi.com/products/${productId}`, {mode: "cors"});
                 const data = await response.json();
                 setProduct(data);
-                setCartItems([...cartItems, data])
                 setLoading(false);
             } catch (err) {
                 console.log(err);

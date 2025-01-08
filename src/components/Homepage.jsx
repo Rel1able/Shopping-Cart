@@ -6,7 +6,7 @@ export default function Homepage() {
             <h2 className={styles.title}>Welcome to my Shop</h2>
             <div className={styles.container}>
                 <h3>Buy some really nice clothes</h3>
-                <img className={styles.img} src="../public/homepage-pic.jpg"/>
+                <img className={styles.img} src="/homepage-pic.jpg"/>
             </div>
         </>
     )

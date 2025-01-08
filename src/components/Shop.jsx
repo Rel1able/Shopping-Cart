@@ -10,7 +10,7 @@ export default function Shop() {
         async function fetchProducts() {
            
             try {
-                let response = await fetch('https://fakestoreapi.com/products');
+                let response = await fetch('https://fakestoreapi.com/products', {mode: "cors"});
                 let data =  await response.json();
                 console.log(data);
                 setProducts(data);

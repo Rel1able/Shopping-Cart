@@ -1,0 +1,8 @@
+.cartContainer li img{
+    width: 100px;
+}
+
+.cartContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
