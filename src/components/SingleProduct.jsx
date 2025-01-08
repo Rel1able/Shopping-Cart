@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "../styles/SingleProduct.module.css";
 
@@ -7,13 +7,18 @@ export default function SingleProduct() {
     const [loading, setLoading] = useState(true);
     const [amount, setAmount] = useState(0);
     const { productId } = useParams();
+    const [cartItems, setCartItems] = useOutletContext();
 
-    function handleMinus() {
+    function handleDecrement() {
         setAmount(a => a - 1);
     }
 
-    function handlePlus() {
+    function handleIncrement() {
         setAmount(a => a + 1);
+    }
+
+    function handleAddToCart() {
+        
     }
 
     useEffect(() => {
@@ -22,6 +27,7 @@ export default function SingleProduct() {
                 const response = await fetch(`https://fakestoreapi.com/products/${productId}`);
                 const data = await response.json();
                 setProduct(data);
+                setCartItems([...cartItems, data])
                 setLoading(false);
             } catch (err) {
                 console.log(err);
@@ -39,11 +45,11 @@ export default function SingleProduct() {
                 <h2>{product.price}€</h2>
                 <h2>{product.rating.rate} stars</h2>
                 <div className={styles.buttons}>
-                    <button onClick={handleMinus}>-</button>
+                    <button onClick={handleDecrement}>-</button>
                     <div>{amount}</div>
-                    <button onClick={handlePlus}>+</button>
+                    <button onClick={handleIncrement}>+</button>
                 </div>
-                <button>Add</button>
+                <button onClick={handleAddToCart}>Add</button>
                 
             </div>
         </>
