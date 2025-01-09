@@ -10,39 +10,54 @@ export default function SingleProduct() {
     const {cartItems, setCartItems, products} = useOutletContext();
 
     function handleDecrement() {
-        setAmount(a => a - 1);
+        if (amount > 0) {
+            setAmount(a => a - 1);
+        }
+        
     }
 
     function handleIncrement() {
         setAmount(a => a + 1);
     }
 
-    let updatedProduct = { ...product, amount: amount };
+    let modifiedProduct = { ...product, amount: amount };
 
 
     function handleAddToCart() {
-        setProduct(updatedProduct)
-        setCartItems([...cartItems, updatedProduct])
+        if (amount > 0) {
+            //setProduct(modifiedProduct)
+            //setCartItems([...cartItems, modifiedProduct]) 
+            checkDuplicates();
+        } else {
+            alert("You should add more than 0 products");
+        }
+       
     }
+    function checkDuplicates() {
+        let exist = cartItems.find(item => item.id === targetProduct.id);
+
+        if (exist) {
+            let updatedCartItems = cartItems.map(item => {
+                if (item.id === targetProduct.id) {
+                    return ({ ...item, amount: item.amount + amount });
+                }
+                return item;
+            })
+            setCartItems(updatedCartItems);
+        } else {
+            setCartItems([...cartItems, modifiedProduct]) 
+        }
+    }   
+
+    
 
     const targetProduct = products.find(product => parseInt(product.id) === parseInt(productId));
     
 
+
     useEffect(() => {
-       /* async function fetchProduct() {
-            try {
-                const response = await fetch(`https://fakestoreapi.com/products/${productId}`, {mode: "cors"});
-                const data = await response.json();
-                setProduct(data);
-                setLoading(false);
-            } catch (err) {
-                console.log(err);
-            }
-        }
-        fetchProduct();*/
         setProduct(targetProduct);
         setLoading(false);
-        
     }, [])
 
     if (loading) return <div>Loading...</div>
