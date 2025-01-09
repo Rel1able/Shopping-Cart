@@ -1,14 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar.jsx";
 import { Outlet } from "react-router-dom";
 import "./index.css";
 
 export default function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+          async function fetchProducts() {
+              try {
+                  let response = await fetch('https://fakestoreapi.com/products', {mode: "cors"});
+                  if (!response.ok) {
+                      throw new Error("Http error");
+                  }
+                  let data =  await response.json();
+                  console.log(data);
+                  setProducts(data);
+                  
+                  console.log(products);
+                  
+              } catch(error) {
+                  setError(error);
+              } finally {
+                  setLoading(false);
+              }
+          }
+           fetchProducts(); 
+      }, [])
+  
   return (
     <>
       <Navbar/>
-      <Outlet context={[cartItems, setCartItems]} />
+      <Outlet context={{ cartItems, setCartItems, loading, error, products }} />
     </>
   )
 }

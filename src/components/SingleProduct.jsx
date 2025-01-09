@@ -7,7 +7,7 @@ export default function SingleProduct() {
     const [loading, setLoading] = useState(true);
     const [amount, setAmount] = useState(0);
     const { productId } = useParams();
-    const [cartItems, setCartItems] = useOutletContext();
+    const {cartItems, setCartItems} = useOutletContext();
 
     function handleDecrement() {
         setAmount(a => a - 1);
@@ -37,6 +37,8 @@ export default function SingleProduct() {
             }
         }
         fetchProduct();
+        
+        
     }, [])
 
     if (loading) return <div>Loading...</div>

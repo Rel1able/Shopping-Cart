@@ -1,31 +1,39 @@
-import { useState, useEffect } from "react";
+//import { useState, useEffect } from "react";
 import styles from "../styles/Shop.module.css";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 
 export default function Shop() {
-    const [products, setProducts] = useState("");
+    const {loading, error, products} = useOutletContext();
+
+    /*const [products, setProducts] = useState("");
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function fetchProducts() {
-           
             try {
                 let response = await fetch('https://fakestoreapi.com/products', {mode: "cors"});
+                if (!response.ok) {
+                    throw new Error("Http error");
+                }
                 let data =  await response.json();
                 console.log(data);
                 setProducts(data);
-                setLoading(false);
+                
                 console.log(products);
                 
-            } catch(err) {
-                console.log(err);
+            } catch(error) {
+                setError(error);
+            } finally {
+                setLoading(false);
             }
         }
-        fetchProducts();
-    }, [])
+         fetchProducts(); 
+    }, [])*/
 
 
-    if (loading)  return <div>Loading...</div>
+    if (loading) return <div>Loading...</div>
+    if (error) return <h1>A network error was encountered</h1>
 
     return (
         <>

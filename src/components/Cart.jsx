@@ -2,7 +2,7 @@ import { useOutletContext, useNavigate } from "react-router-dom";
 import styles from "../styles/Cart.module.css"
 
 export default function Cart() {
-    const [cartItems, setCartItems] = useOutletContext();
+    const {cartItems, setCartItems} = useOutletContext();
     let navigate = useNavigate();
 
     function handlePurchase() {
