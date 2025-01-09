@@ -7,7 +7,7 @@ export default function SingleProduct() {
     const [loading, setLoading] = useState(true);
     const [amount, setAmount] = useState(0);
     const { productId } = useParams();
-    const {cartItems, setCartItems} = useOutletContext();
+    const {cartItems, setCartItems, products} = useOutletContext();
 
     function handleDecrement() {
         setAmount(a => a - 1);
@@ -25,8 +25,11 @@ export default function SingleProduct() {
         setCartItems([...cartItems, updatedProduct])
     }
 
+    const targetProduct = products.find(product => parseInt(product.id) === parseInt(productId));
+    
+
     useEffect(() => {
-        async function fetchProduct() {
+       /* async function fetchProduct() {
             try {
                 const response = await fetch(`https://fakestoreapi.com/products/${productId}`, {mode: "cors"});
                 const data = await response.json();
@@ -36,8 +39,9 @@ export default function SingleProduct() {
                 console.log(err);
             }
         }
-        fetchProduct();
-        
+        fetchProduct();*/
+        setProduct(targetProduct);
+        setLoading(false);
         
     }, [])
 
