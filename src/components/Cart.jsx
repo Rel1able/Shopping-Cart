@@ -11,6 +11,11 @@ export default function Cart() {
         setCartItems([]);
     }
 
+    function handleDelete(index) {
+        const filtered = cartItems.filter((_, i) => index !== i);
+        setCartItems(filtered);
+    }
+
     let sum = 0;
 
     function generateTotal() {
@@ -22,18 +27,19 @@ export default function Cart() {
     return (
         <>
             <ul className={styles.cartContainer}>
-                {cartItems.map((item, id) => (
+                {cartItems.map((item, index) => (
 
-                    <li key={id}>
+                    <li key={index}>
                         <h1>{item.title}</h1>
                         <h2>{item.amount}</h2>
                         <h2>{parseFloat(item.price) * parseFloat(item.amount)}€</h2>
-                        <img src={item.image}/>
+                        <img src={item.image} />
+                        <button onClick={() => handleDelete(index)}>Delete</button>
                     </li>
                 ))}
             </ul>
             {cartItems.length === 0 && <div>Nothing to see here, your cart is empty</div>}
-            <button onClick={handlePurchase}>Checkout {sum}€</button>
+            <button onClick={handlePurchase}>Checkout {sum.toFixed(2)}€</button>
         </>
         
     )
