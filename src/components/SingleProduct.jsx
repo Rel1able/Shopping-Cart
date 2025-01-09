@@ -1,13 +1,21 @@
 import { useParams, useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "../styles/SingleProduct.module.css";
+import PropTypes from "prop-types";
 
-export default function SingleProduct() {
+export default function SingleProduct({currency = "€"}) {
     const [product, setProduct] = useState(undefined);
     const [loading, setLoading] = useState(true);
     const [amount, setAmount] = useState(0);
     const { productId } = useParams();
-    const {cartItems, setCartItems, products} = useOutletContext();
+    const { cartItems, setCartItems, products } = useOutletContext();
+
+    const targetProduct = products.find(product => parseInt(product.id) === parseInt(productId));
+    
+    useEffect(() => {
+        setProduct(targetProduct);
+        setLoading(false);
+    }, [])
 
     function handleDecrement() {
         if (amount > 0) {
@@ -25,8 +33,6 @@ export default function SingleProduct() {
 
     function handleAddToCart() {
         if (amount > 0) {
-            //setProduct(modifiedProduct)
-            //setCartItems([...cartItems, modifiedProduct]) 
             checkDuplicates();
         } else {
             alert("You should add more than 0 products");
@@ -51,22 +57,14 @@ export default function SingleProduct() {
 
     
 
-    const targetProduct = products.find(product => parseInt(product.id) === parseInt(productId));
-    
-
-
-    useEffect(() => {
-        setProduct(targetProduct);
-        setLoading(false);
-    }, [])
-
     if (loading) return <div>Loading...</div>
     return (
         <>
             <div className={styles.container}>
                 <img src={product.image} />
                 <h3>{product.title}</h3>
-                <h2>{product.price}€</h2>
+                <h4>{product.description}</h4>
+                <h2>{product.price}{currency}</h2>
                 <h2>{product.rating.rate} stars</h2>
                 <div className={styles.buttons}>
                     <button onClick={handleDecrement}>-</button>
@@ -78,4 +76,8 @@ export default function SingleProduct() {
             </div>
         </>
     )
+}
+
+SingleProduct.propTypes = {
+    currency: PropTypes.string,
 }
