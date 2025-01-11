@@ -9,6 +9,7 @@ export default function App() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const cartCount = cartItems.length;
   useEffect(() => {
           async function fetchProducts() {
               try {
@@ -33,7 +34,7 @@ export default function App() {
   
   return (
     <div className="page-container">
-      <Navbar/>
+      <Navbar cartCount={cartCount} />
       <Outlet context={{ cartItems, setCartItems, loading, error, products }} />
       <Footer/>
     </div>

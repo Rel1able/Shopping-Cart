@@ -3,7 +3,7 @@ import styles from "../styles/Navbar.module.css";
 import PropTypes from "prop-types";
 import { ShoppingCart } from "lucide-react";
 
-export default function Navbar({ shopName = "Shop",homepage = "Home", shop = "Shop"}) {
+export default function Navbar({ shopName = "Fake Shop",homepage = "Home", shop = "Shop", cartCount}) {
     return (
         <nav>
             <ul className={styles.container}>
@@ -15,7 +15,12 @@ export default function Navbar({ shopName = "Shop",homepage = "Home", shop = "Sh
                         <li>Categories</li>
                     </div>
                     
-                    <Link className={styles.linkStyle} to="cart"><li><ShoppingCart/></li></Link>
+                    <div className={styles.cartContainer}>
+                        <Link className={styles.linkStyle} to="cart"><li><ShoppingCart/></li></Link>
+                        <div className={styles.itemsInCart}>{cartCount}</div>
+                    </div>
+
+                    
                 </div>
                 
             </ul>
@@ -28,4 +33,5 @@ Navbar.propTypes = {
     homepage: PropTypes.string,
     shop: PropTypes.string,
     cart: PropTypes.string,
+    cartCount: PropTypes.number,
 }

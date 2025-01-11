@@ -34,3 +34,20 @@
     display: flex;
     justify-content: space-around;
 }
+
+.cartContainer{
+    display: flex;
+}
+
+.itemsInCart{
+    position: relative;
+    bottom: 0.7rem;
+    right: 0.5rem;
+    background: var(--additional-color1);
+    border-radius: 50%;
+    width: 1.8rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

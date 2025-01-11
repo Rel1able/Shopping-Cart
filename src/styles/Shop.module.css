@@ -1,12 +1,12 @@
 .cardContainer{
-    width: 10rem;
+    width: 14rem;
     padding: 2rem;
     padding-bottom: 1rem;
     border: 2px solid rgb(230, 230, 230);
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
-    height: 20rem;
+    height: 22rem;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -20,8 +20,8 @@
 }
 
 .cardContainer img{
-    height: 8rem;
-    width: 6rem;
+    height: 10rem;
+    max-width: 13rem;
     
    
 }
@@ -69,3 +69,5 @@
 .productPrice{
     font-weight: normal;
 }
+
+

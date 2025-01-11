@@ -20,7 +20,7 @@ export default function Shop({errorMsg = "A network error was encountered", sect
                                     <img src={product.image} />
                                     <h3 className={styles.productName}>{product.title}</h3>
                                     <h2 className={styles.productPrice}>{product.price} {currency}</h2>
-                                    <h2 className={styles.rating}>{product.rating.rate} <Star fill="yellow" color="rgb(173, 173, 52)" /></h2>
+                            <h2 className={styles.rating}>{product.rating.rate}<Star fill="yellow" color="rgb(173, 173, 52)" /></h2>
                                 </div>
                         </Link>
                     
