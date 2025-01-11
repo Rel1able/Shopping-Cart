@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar.jsx";
 import { Outlet } from "react-router-dom";
+import Footer from "./components/Footer.jsx";
 import "./index.css";
 
 export default function App() {
@@ -31,9 +32,10 @@ export default function App() {
       }, [])
   
   return (
-    <>
+    <div className="page-container">
       <Navbar/>
       <Outlet context={{ cartItems, setCartItems, loading, error, products }} />
-    </>
+      <Footer/>
+    </div>
   )
 }

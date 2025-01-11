@@ -36,7 +36,7 @@ export default function Cart({currency = "€", emptyCartMsg ="Nothing to see he
                     <li key={index}>
                         <h1>{item.title}</h1>
                         <h2>{item.amount}</h2>
-                        <h2>{(parseFloat(item.price) * parseFloat(item.amount)).toFixed(2)}{currency}</h2>
+                        <h2>{(parseFloat(item.price) * parseFloat(item.amount)).toFixed(2)} {currency}</h2>
                         <img src={item.image} />
                         <button onClick={() => handleDelete(index)}>Delete</button>
                     </li>

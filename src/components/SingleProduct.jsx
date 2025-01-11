@@ -64,7 +64,7 @@ export default function SingleProduct({currency = "€"}) {
                 <img src={product.image} />
                 <h3>{product.title}</h3>
                 <h4>{product.description}</h4>
-                <h2>{product.price}{currency}</h2>
+                <h2>{product.price} {currency}</h2>
                 <h2>{product.rating.rate} stars</h2>
                 <div className={styles.buttons}>
                     <button onClick={handleDecrement}>-</button>

@@ -1,5 +1,22 @@
-body{
+:root{
+    --main-color: #D83F87;
+    --secondary-color: #2A1B3D;
+    --additional-color1: #44318D;
+    --additional-color2: #97689e;
+}
+
+
+body, html{
+    height: 100vh;
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+
+}
+
+.page-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }
