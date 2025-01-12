@@ -5,4 +5,15 @@
 .cartContainer{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    list-style-type: none;
+}
+
+.productCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+    text-align: center;
+    padding: 1rem;
 }

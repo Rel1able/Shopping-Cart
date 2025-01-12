@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 import { Star } from "lucide-react";
 
 export default function Shop({errorMsg = "A network error was encountered", sectionName = "Shop", currency = "€"}) {
-    const {loading, error, products} = useOutletContext();
-    if (loading) return <div>Loading...</div>
+    const { loading, error, products } = useOutletContext();
+    if (loading) return <div className={styles.loading}>Loading...</div>
     if (error) return <h1>{errorMsg}</h1>
 
     return (
@@ -20,7 +20,7 @@ export default function Shop({errorMsg = "A network error was encountered", sect
                                     <img src={product.image} />
                                     <h3 className={styles.productName}>{product.title}</h3>
                                     <h2 className={styles.productPrice}>{product.price} {currency}</h2>
-                            <h2 className={styles.rating}>{product.rating.rate}<Star fill="yellow" color="rgb(173, 173, 52)" /></h2>
+                            <h2 className={styles.rating}>{product.rating.rate}<Star fill="rgb(252, 235, 0)" color="rgb(223, 223, 13)" /></h2>
                                 </div>
                         </Link>
                     

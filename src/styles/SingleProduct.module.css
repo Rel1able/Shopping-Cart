@@ -1,9 +1,25 @@
 .container{
-    width: 300px;
-    padding: 2rem;
-    border: 2px solid;
+    
+    padding: 3rem;
+    border: 2px solid darkgray;
+    border-radius: 2rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin-top: 1rem;
+    height: 80%;
+    box-shadow: 2px 2px 2px darkgray;
+   
+}   
+
+.mainContainer{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .container img{
@@ -13,5 +29,41 @@
 .buttons{
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.rating{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+
+}
+
+.btn{
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    background-color: var(--additional-color1);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: #3e2d80;
+}
+
+.amount{
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: relative;
+    bottom: 0.5rem;
+}
+
+.description{
+    font-weight: normal;
 }

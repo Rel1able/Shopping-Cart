@@ -1,7 +1,8 @@
-import { useParams, useOutletContext } from "react-router-dom";
+import { useParams, useOutletContext, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "../styles/SingleProduct.module.css";
 import PropTypes from "prop-types";
+import { Star } from "lucide-react";
 
 export default function SingleProduct({currency = "€"}) {
     const [product, setProduct] = useState(undefined);
@@ -59,22 +60,22 @@ export default function SingleProduct({currency = "€"}) {
 
     if (loading) return <div>Loading...</div>
     return (
-        <>
+        <div className={styles.mainContainer}>
             <div className={styles.container}>
                 <img src={product.image} />
                 <h3>{product.title}</h3>
-                <h4>{product.description}</h4>
+                <h4 className={styles.description}>{product.description}</h4>
                 <h2>{product.price} {currency}</h2>
-                <h2>{product.rating.rate} stars</h2>
+                <h2 className={styles.rating}>{product.rating.rate} <Star fill="rgb(252, 235, 0)" color="rgb(223, 223, 13)" /></h2>
                 <div className={styles.buttons}>
-                    <button onClick={handleDecrement}>-</button>
-                    <div>{amount}</div>
-                    <button onClick={handleIncrement}>+</button>
+                    <button className={styles.btn} onClick={handleDecrement}>-</button>
+                    <div className={styles.amount}>{amount}</div>
+                    <button className={styles.btn} onClick={handleIncrement}>+</button>
                 </div>
-                <button onClick={handleAddToCart}>Add</button>
+                <Link to="/cart" className={styles.btn} onClick={handleAddToCart}>Add to the cart</Link>
                 
             </div>
-        </>
+        </div>
     )
 }
 

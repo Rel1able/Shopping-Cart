@@ -12,7 +12,6 @@ export default function Navbar({ shopName = "Fake Shop",homepage = "Home", shop 
                     <div className={styles.mainLinks}>
                         <Link className={styles.linkStyle} to="/"><li>{homepage}</li></Link>
                         <Link className={styles.linkStyle} to="shop"><li>{shop}</li></Link>
-                        <li>Categories</li>
                     </div>
                     
                     <div className={styles.cartContainer}>

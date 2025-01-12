@@ -33,17 +33,30 @@ export default function Cart({currency = "€", emptyCartMsg ="Nothing to see he
             <ul className={styles.cartContainer}>
                 {cartItems.map((item, index) => (
 
-                    <li key={index}>
-                        <h1>{item.title}</h1>
-                        <h2>{item.amount}</h2>
-                        <h2>{(parseFloat(item.price) * parseFloat(item.amount)).toFixed(2)} {currency}</h2>
-                        <img src={item.image} />
-                        <button onClick={() => handleDelete(index)}>Delete</button>
-                    </li>
+                    <li className={styles.productCard} key={index}>
+                            <img src={item.image} />
+                            <h1>{item.title}</h1>
+                            <h2>{item.amount}</h2>
+                            <h2>{(parseFloat(item.price) * parseFloat(item.amount)).toFixed(2)} {currency}</h2>
+                            
+                            <button onClick={() => handleDelete(index)}>Delete</button>
+                        </li>
+                    
                 ))}
             </ul>
-            {cartItems.length === 0 && <div>{emptyCartMsg}</div>}
-            <button onClick={handlePurchase}>Checkout {sum.toFixed(2)}{currency}</button>
+            {cartItems.length === 0 &&
+                <div>
+                    <div>{emptyCartMsg}</div>
+                    <button onClick={() => navigate("/shop")}>Shop now</button>
+                </div>
+            }
+            {cartItems.length > 0 &&
+                <div className={styles.buttons}>
+                    <button onClick={handlePurchase}>Checkout {sum.toFixed(2)}{currency}</button>
+                    <button onClick={() => navigate("/shop")}>Continue Shopping</button>
+                </div>}
+            
+            
         </>
         
     )
