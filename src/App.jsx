@@ -35,7 +35,7 @@ export default function App() {
   return (
     <div className="page-container">
       <Navbar cartCount={cartCount} />
-      <Outlet context={{ cartItems, setCartItems, loading, error, products }} />
+      <Outlet context={{ cartItems, setCartItems, loading, error, products, setProducts }} />
       <Footer/>
     </div>
   )

@@ -1,19 +1,36 @@
-//import { useState, useEffect } from "react";
 import styles from "../styles/Shop.module.css";
 import { Link, useOutletContext } from "react-router-dom";
 import PropTypes from "prop-types";
-import { Star } from "lucide-react";
+import { Star, Search } from "lucide-react";
+import SearchBar from "./SearchBar.jsx";
+import { useState } from "react";
 
 export default function Shop({errorMsg = "A network error was encountered", sectionName = "Shop", currency = "€"}) {
+    const [inputValue, setInputValue] = useState("");
     const { loading, error, products } = useOutletContext();
     if (loading) return <div className={styles.loading}>Loading...</div>
     if (error) return <h1>{errorMsg}</h1>
+    
+    function handleInputChange(e) {
+        setInputValue(e.target.value);
+    }
+
+    const productsToFilter = !inputValue
+        ? products
+        : products.filter((product) => 
+            product.title.toLowerCase().includes(inputValue.toLowerCase()))
+
 
     return (
         <>
             <h1 className={styles.title}>{sectionName}</h1>
+            <div className={styles.searchBar}>
+                <Search color="white"/>
+                <SearchBar className={styles.searchInput}  value={inputValue} onChange={handleInputChange} />
+            </div>
+            
             <div className={styles.productsContainer}>
-                {products.map(product => (
+                {productsToFilter.map(product => (
                     
                             <Link className={styles.linkStyle} to={`${product.id}`} key={product.id} >
                                 <div  className={styles.cardContainer}>
