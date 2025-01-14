@@ -35,18 +35,3 @@
     color: var(--additional-color2);
 }
 
-.btn{
-    border: none;
-    background-color: var(--additional-color1);
-    color: white;
-    cursor: pointer;
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    font-size: 1.5rem;
-    position: relative;
-    top: 3rem;
-}
-
-.btn:hover{
-    background-color: rgb(59, 22, 140);
-}

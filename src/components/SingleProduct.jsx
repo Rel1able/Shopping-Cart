@@ -1,8 +1,10 @@
 import { useParams, useOutletContext, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "../styles/SingleProduct.module.css";
+import styles2 from "../styles/Button.module.css";
 import PropTypes from "prop-types";
 import { Star } from "lucide-react";
+import Button from "./Button.jsx";
 
 export default function SingleProduct({currency = "€"}) {
     const [product, setProduct] = useState(undefined);
@@ -68,11 +70,11 @@ export default function SingleProduct({currency = "€"}) {
                 <h2>{product.price} {currency}</h2>
                 <h2 className={styles.rating}>{product.rating.rate} <Star fill="rgb(252, 235, 0)" color="rgb(223, 223, 13)" /></h2>
                 <div className={styles.buttons}>
-                    <button className={styles.btn} onClick={handleDecrement}>-</button>
+                    <Button onClick={handleDecrement} text="-"/>
                     <div className={styles.amount}>{amount}</div>
-                    <button className={styles.btn} onClick={handleIncrement}>+</button>
+                    <Button onClick={handleIncrement} text="+"/>
                 </div>
-                <Link to="/cart" className={styles.btn} onClick={handleAddToCart}>Add to the cart</Link>
+                <Link to="/cart" className={styles2.btn} onClick={handleAddToCart}>Add to the cart</Link>
                 
             </div>
         </div>

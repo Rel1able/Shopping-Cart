@@ -1,6 +1,7 @@
 import { useOutletContext, useNavigate } from "react-router-dom";
 import styles from "../styles/Cart.module.css"
 import PropTypes from "prop-types";
+import Button from "./Button.jsx";
 
 export default function Cart({currency = "€", emptyCartMsg ="Nothing to see here, your cart is empty" }) {
     const {cartItems, setCartItems} = useOutletContext();
@@ -39,7 +40,7 @@ export default function Cart({currency = "€", emptyCartMsg ="Nothing to see he
                             <h2>{item.amount}</h2>
                             <h2>{(parseFloat(item.price) * parseFloat(item.amount)).toFixed(2)} {currency}</h2>
                             
-                            <button onClick={() => handleDelete(index)}>Delete</button>
+                        <Button onClick={() => handleDelete(index)} text="Delete"/>
                         </li>
                     
                 ))}
@@ -47,15 +48,14 @@ export default function Cart({currency = "€", emptyCartMsg ="Nothing to see he
             {cartItems.length === 0 &&
                 <div>
                     <div>{emptyCartMsg}</div>
-                    <button onClick={() => navigate("/shop")}>Shop now</button>
+                    <Button onClick={() => navigate("/shop")} text="Shop now"/>
                 </div>
             }
             {cartItems.length > 0 &&
                 <div className={styles.buttons}>
-                    <button onClick={handlePurchase}>Checkout {sum.toFixed(2)}{currency}</button>
-                    <button onClick={() => navigate("/shop")}>Continue Shopping</button>
+                    <Button onClick={handlePurchase} text="Checkout"/> {sum.toFixed(2)}{currency}
+                    <Button onClick={() => navigate("/shop")} text="Continue Shopping"/>
                 </div>}
-            
             
         </>
         
