@@ -23,7 +23,9 @@ export default function Shop({errorMsg = "A network error was encountered", sect
 
     return (
         <>
-            <h1 className={styles.title}>{sectionName}</h1>
+            <h1 className={styles.title}>
+                {sectionName}
+            </h1>
             <div className={styles.searchBar}>
                 <Search color="white"/>
                 <SearchBar className={styles.searchInput}  value={inputValue} onChange={handleInputChange} />

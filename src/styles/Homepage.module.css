@@ -35,3 +35,8 @@
     color: var(--additional-color2);
 }
 
+.btn{
+    font-size: 1.5rem;
+    position: relative;
+    top: 1rem;
+}

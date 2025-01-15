@@ -1,7 +1,6 @@
-import { useParams, useOutletContext, Link } from "react-router-dom";
+import { useParams, useOutletContext, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "../styles/SingleProduct.module.css";
-import styles2 from "../styles/Button.module.css";
 import PropTypes from "prop-types";
 import { Star } from "lucide-react";
 import Button from "./Button.jsx";
@@ -12,6 +11,7 @@ export default function SingleProduct({currency = "€"}) {
     const [amount, setAmount] = useState(0);
     const { productId } = useParams();
     const { cartItems, setCartItems, products } = useOutletContext();
+    const navigate = useNavigate();
 
     const targetProduct = products.find(product => parseInt(product.id) === parseInt(productId));
     
@@ -37,6 +37,7 @@ export default function SingleProduct({currency = "€"}) {
     function handleAddToCart() {
         if (amount > 0) {
             checkDuplicates();
+            navigate("/cart");
         } else {
             alert("You should add more than 0 products");
         }
@@ -64,17 +65,26 @@ export default function SingleProduct({currency = "€"}) {
     return (
         <div className={styles.mainContainer}>
             <div className={styles.container}>
-                <img src={product.image} />
-                <h3>{product.title}</h3>
-                <h4 className={styles.description}>{product.description}</h4>
-                <h2>{product.price} {currency}</h2>
-                <h2 className={styles.rating}>{product.rating.rate} <Star fill="rgb(252, 235, 0)" color="rgb(223, 223, 13)" /></h2>
+                <div className={styles.headerContainer}>
+                    <img className={styles.productImage} src={product.image} />
+                    <div className={styles.titleContainer}>
+                        <h3>{product.title}</h3>
+                        <h2>{product.price} {currency}</h2>
+                        <h4 className={styles.description}>{product.description}</h4>
+                         <h2 className={styles.rating}>{product.rating.rate} <Star fill="rgb(252, 235, 0)" color="rgb(223, 223, 13)" /></h2>
+                        <h2>Quantity {amount}</h2>
+                    </div>
+                    
+                </div>
+                
+                
+               
                 <div className={styles.buttons}>
                     <Button onClick={handleDecrement} text="-"/>
-                    <div className={styles.amount}>{amount}</div>
-                    <Button onClick={handleIncrement} text="+"/>
+                    <Button onClick={handleAddToCart} text="Add to the cart"/>
+                    <Button onClick={handleIncrement} text="+" />
                 </div>
-                <Link to="/cart" className={styles2.btn} onClick={handleAddToCart}>Add to the cart</Link>
+               
                 
             </div>
         </div>

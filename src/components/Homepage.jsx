@@ -13,7 +13,7 @@ export default function Homepage({title = "Welcome to the Fake Shop", descriptio
             <div className={styles.container}>
                 <h3 className={styles.desc}>
                     {description}
-                    <Button onClick={() => {navigate("/shop")}} text="Shop now"/>
+                    <Button addClass={styles.btn} onClick={() => {navigate("/shop")}} text="Shop now"/>
                 </h3>
                 <img className={styles.img} src="/homepage-pic.jpg"/>
             </div>

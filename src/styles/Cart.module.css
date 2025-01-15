@@ -1,11 +1,18 @@
 .cartContainer li img{
-    width: 100px;
+    max-width: 10rem;
+    height: 13rem;
+    padding: 2rem;
+}
+
+.mainContainer{
+    padding: 2rem;
 }
 
 .cartContainer{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     list-style-type: none;
+    gap: 2rem;
 }
 
 .productCard{
@@ -13,7 +20,45 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid;
+    border: 2px solid darkgray;
+    box-shadow: 2px 2px 2px darkgray;
     text-align: center;
+    border-radius: 2rem;
     padding: 1rem;
+}
+
+.empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap :2rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.checkout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.price{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.textContainer{
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
