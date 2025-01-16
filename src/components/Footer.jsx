@@ -6,7 +6,7 @@ export default function Footer({shopName = "Fake Shop"}){
     return (
         <footer className={styles.footer}>
             <h1>{shopName}</h1>
-            <h3 className={styles.container}>Made by<a className={styles.madeBy} href="https://github.com/Rel1able">Rel1able<Github/></a></h3>
+            <h3 className={styles.container}>Made by<a className={styles.madeBy} href="https://github.com/Rel1able"><Github/>Rel1able</a></h3>
         </footer>
     )
 }

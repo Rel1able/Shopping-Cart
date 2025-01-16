@@ -1,6 +1,6 @@
 .cartContainer li img{
-    max-width: 10rem;
-    height: 13rem;
+    max-width: 12rem;
+    height: 10rem;
     padding: 2rem;
 }
 
@@ -10,9 +10,10 @@
 
 .cartContainer{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    place-items: center;
     list-style-type: none;
-    gap: 2rem;
+    
 }
 
 .productCard{

@@ -68,9 +68,9 @@ export default function SingleProduct({currency = "€"}) {
                 <div className={styles.headerContainer}>
                     <img className={styles.productImage} src={product.image} />
                     <div className={styles.titleContainer}>
-                        <h3>{product.title}</h3>
+                        <h1>{product.title}</h1>
                         <h2>{product.price} {currency}</h2>
-                        <h4 className={styles.description}>{product.description}</h4>
+                        <h3 className={styles.description}>{product.description}</h3>
                          <h2 className={styles.rating}>{product.rating.rate} <Star fill="rgb(252, 235, 0)" color="rgb(223, 223, 13)" /></h2>
                         <h2>Quantity {amount}</h2>
                     </div>

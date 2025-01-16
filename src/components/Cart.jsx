@@ -31,6 +31,15 @@ export default function Cart({currency = "€", emptyCartMsg ="Nothing to see he
     
     return (
         <div className={styles.mainContainer}>
+             {cartItems.length > 0 &&
+                <div className={styles.buttons}>
+                    <div className={styles.checkout}>
+                         <Button onClick={handlePurchase} text={"Checkout"} />
+                        <div className={styles.price}>{sum.toFixed(2)} {currency}</div>
+                    </div>
+                   
+                    <Button onClick={() => navigate("/shop")} text="Continue Shopping"/>
+                </div>}
             <ul className={styles.cartContainer}>
                 {cartItems.map((item, index) => (
 
@@ -51,15 +60,7 @@ export default function Cart({currency = "€", emptyCartMsg ="Nothing to see he
                     <Button onClick={() => navigate("/shop")} text="Shop now"/>
                 </div>
             }
-            {cartItems.length > 0 &&
-                <div className={styles.buttons}>
-                    <div className={styles.checkout}>
-                         <Button onClick={handlePurchase} text={"Checkout"} />
-                        <div className={styles.price}>{sum.toFixed(2)}{currency}</div>
-                    </div>
-                   
-                    <Button onClick={() => navigate("/shop")} text="Continue Shopping"/>
-                </div>}
+           
             
         </div>
         
