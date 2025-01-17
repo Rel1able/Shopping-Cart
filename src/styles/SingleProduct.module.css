@@ -24,7 +24,8 @@
 }
 
 .productImage{
-    max-width: 17rem;
+    max-width: 25rem;
+    object-fit: contain;
 }
 
 
@@ -61,4 +62,20 @@
     justify-content: center;
     position: relative;
     left: 2rem;
+}
+
+.quantityContainer{
+    display: flex;
+
+    justify-content: start;
+    align-items: center;
+}
+
+.quantity{
+  
+    padding: 1rem;
+}
+
+.quantityBtn{
+    padding: 0.7rem 1.5rem;
 }

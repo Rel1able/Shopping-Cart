@@ -30,26 +30,20 @@ export default function Cart({currency = "€", emptyCartMsg ="Nothing to see he
     if (cartItems) generateTotal();
     
     return (
-        <div className={styles.mainContainer}>
-             {cartItems.length > 0 &&
-                <div className={styles.buttons}>
-                    <div className={styles.checkout}>
-                         <Button onClick={handlePurchase} text={"Checkout"} />
-                        <div className={styles.price}>{sum.toFixed(2)} {currency}</div>
-                    </div>
-                   
-                    <Button onClick={() => navigate("/shop")} text="Continue Shopping"/>
-                </div>}
+        <>
+            {cartItems.length > 0 && <h1 className={styles.title}>Your Cart</h1>}
+            <div className={styles.mainContainer}>
+            
             <ul className={styles.cartContainer}>
                 {cartItems.map((item, index) => (
 
                     <li className={styles.productCard} key={index}>
                             <img src={item.image} />
                             <h2 className={styles.textContainer}>{item.title}</h2>
-                            <h2>Quantity: {item.amount}</h2>
+                            <h2>{item.amount}</h2>
                             <h2>{(parseFloat(item.price) * parseFloat(item.amount)).toFixed(2)} {currency}</h2>
                             
-                        <Button onClick={() => handleDelete(index)} text="Delete"/>
+                        <Button onClick={() => handleDelete(index)} text="Remove"/>
                         </li>
                     
                 ))}
@@ -60,9 +54,17 @@ export default function Cart({currency = "€", emptyCartMsg ="Nothing to see he
                     <Button onClick={() => navigate("/shop")} text="Shop now"/>
                 </div>
             }
-           
+            {cartItems.length > 0 &&
+                
+                <div className={styles.buttons}>
+                    <div className={styles.price}>Total {sum.toFixed(2)} {currency}</div>
+                    <Button onClick={handlePurchase} text={"Checkout"} />
+                    <Button onClick={() => navigate("/shop")} text="Continue Shopping"/>
+                </div>}
             
         </div>
+        </>
+        
         
     )
 }

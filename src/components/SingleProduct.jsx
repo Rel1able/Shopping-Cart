@@ -8,7 +8,7 @@ import Button from "./Button.jsx";
 export default function SingleProduct({currency = "€"}) {
     const [product, setProduct] = useState(undefined);
     const [loading, setLoading] = useState(true);
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState(1);
     const { productId } = useParams();
     const { cartItems, setCartItems, products } = useOutletContext();
     const navigate = useNavigate();
@@ -69,10 +69,10 @@ export default function SingleProduct({currency = "€"}) {
                     <img className={styles.productImage} src={product.image} />
                     <div className={styles.titleContainer}>
                         <h1>{product.title}</h1>
-                        <h2>{product.price} {currency}</h2>
+                        <h2>{amount > 0 ? product.price * amount : product.price} {currency}</h2>
                         <h3 className={styles.description}>{product.description}</h3>
-                         <h2 className={styles.rating}>{product.rating.rate} <Star fill="rgb(252, 235, 0)" color="rgb(223, 223, 13)" /></h2>
-                        <h2>Quantity {amount}</h2>
+                         <h2 className={styles.rating}>{product.rating.rate} <Star fill="gold" color="gold" /></h2>
+                        <h2  className={styles.quantityContainer}><Button addClass={styles.quantityBtn} onClick={handleDecrement} text="-"/> <div  className={styles.quantity}>{amount} </div> <Button addClass={styles.quantityBtn} onClick={handleIncrement} text="+" /></h2>
                     </div>
                     
                 </div>
@@ -80,9 +80,9 @@ export default function SingleProduct({currency = "€"}) {
                 
                
                 <div className={styles.buttons}>
-                    <Button onClick={handleDecrement} text="-"/>
+                    
                     <Button onClick={handleAddToCart} text="Add to the cart"/>
-                    <Button onClick={handleIncrement} text="+" />
+                    
                 </div>
                
                 
