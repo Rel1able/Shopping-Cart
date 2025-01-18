@@ -74,18 +74,10 @@ export default function SingleProduct({currency = "€"}) {
                          <h2 className={styles.rating}>{product.rating.rate} <Star fill="gold" color="gold" /></h2>
                         <h2  className={styles.quantityContainer}><Button addClass={styles.quantityBtn} onClick={handleDecrement} text="-"/> <div  className={styles.quantity}>{amount} </div> <Button addClass={styles.quantityBtn} onClick={handleIncrement} text="+" /></h2>
                     </div>
-                    
                 </div>
-                
-                
-               
                 <div className={styles.buttons}>
-                    
                     <Button onClick={handleAddToCart} text="Add to the cart"/>
-                    
                 </div>
-               
-                
             </div>
         </div>
     )
