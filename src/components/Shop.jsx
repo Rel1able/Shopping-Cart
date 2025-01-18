@@ -25,13 +25,17 @@ export default function Shop({errorMsg = "A network error was encountered", sect
         <>
             <h1 className={styles.title}>
                 {sectionName}
+                <div className={styles.searchBar}>
+                    <div className={styles.searchBarIcon}>
+                        <Search color="white"/>
+                    </div>
+                    <SearchBar className={styles.searchInput}  value={inputValue} onChange={handleInputChange} />
+                </div>
             </h1>
-            <div className={styles.searchBar}>
-                <Search color="white"/>
-                <SearchBar className={styles.searchInput}  value={inputValue} onChange={handleInputChange} />
-            </div>
+            
             
             <div className={styles.productsContainer}>
+                {productsToFilter.length === 0 && <h1 className={styles.notFound}>No products found</h1>}
                 {productsToFilter.map(product => (
                     
                             <Link className={styles.linkStyle} to={`${product.id}`} key={product.id} >

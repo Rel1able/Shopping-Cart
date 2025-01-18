@@ -27,12 +27,14 @@
 }
 
 .productsContainer{
-    width: 80%;
+    width: 100%;
     margin: auto;
     place-items: center;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .linkStyle{
@@ -42,11 +44,16 @@
 
 .title{
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--main-color);
     margin-top: 0px;
     margin-bottom: 0px;
     padding: 1.2rem;
     color: white;
+    gap: 2rem;
+    margin-bottom: 1rem;
 }
 
 .card{
@@ -83,12 +90,10 @@
 .searchBar{
     
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    position: relative;
-    bottom: 2.75rem;
-    right: 30%;
-    gap: 0.5rem;
+
+
 
 }
 
@@ -101,4 +106,43 @@
 
 .searchInput:focus{
     outline: none;
+}
+
+.notFound{
+    width: 100%;
+    text-align: center;
+    color: rgb(35, 34, 34);
+    grid-column: 1 / -1;
+    
+}
+
+.searchBarIcon{
+    position: relative;
+    top: 0.5rem;
+}
+
+
+@media (max-width: 320px){
+    .title{
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .searchBar{
+        position: relative;
+        right: 1rem;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 375px){
+    .title{
+        flex-direction: column;
+        gap: 0;
+    }
+    .searchBar{
+        position: relative;
+        right: 1rem;
+        gap: 1rem;
+    }
 }
