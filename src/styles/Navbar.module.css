@@ -50,4 +50,40 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+}
+
+@media (max-width: 320px){
+    .container{
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+    .mainLinks{
+        gap: 1rem;
+    }
+
+    .linksContainer{
+        gap: 1rem;
+    }
+
+}
+
+@media (max-width: 375px){
+    .container{
+
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+    .mainLinks{
+        gap: 1.2rem;
+    }
+
+    .linksContainer{
+        gap: 1.2rem;
+    }
+
 }
