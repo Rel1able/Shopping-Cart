@@ -100,12 +100,51 @@
     }
     .quantityContainer{
         left: 0;
+         justify-content: center;
+    }
+
+    .titleContainer{
+        text-align: center;
+    } 
+
+}
+
+
+@media (max-width: 768px){
+    .productImage{
+        height: 10rem;
+        max-width: 10rem;
+    }
+
+    .headerContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .quantityContainer{
+        left: 0;
+        justify-content: center;
     }
 
     .titleContainer{
         text-align: center;
     }
 
-    
+}
 
+@media (max-width: 1024px){
+    .productImage{
+        height: 25rem;
+        max-width: 18rem;
+    }
+    html{
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1280px){
+    html{
+        font-size: 1.3rem;
+    }
 }
