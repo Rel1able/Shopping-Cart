@@ -38,12 +38,12 @@ export default function Cart({currency = "€", emptyCartMsg ="Nothing to see he
                 {cartItems.map((item, index) => (
 
                     <li className={styles.productCard} key={index}>
-                            <img src={item.image} />
+                            <img className={styles.productImg} src={item.image} />
                             <h2 className={styles.textContainer}>{item.title}</h2>
                             <h2>{item.amount}</h2>
                             <h2>{(parseFloat(item.price) * parseFloat(item.amount)).toFixed(2)} {currency}</h2>
                             
-                        <Button onClick={() => handleDelete(index)} text="Remove"/>
+                        <Button addClass={styles.removeBtn} onClick={() => handleDelete(index)} text="Remove"/>
                         </li>
                     
                 ))}

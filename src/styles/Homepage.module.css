@@ -83,4 +83,15 @@
         flex-direction: column;
 
     }
+
+    html{
+        font-size: 1.1rem;
+    }
+}
+
+
+@media (min-width: 1024px){
+    html{
+        font-size: 1.2rem;
+    }
 }

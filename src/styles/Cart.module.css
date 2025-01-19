@@ -1,13 +1,12 @@
-.cartContainer li img{
-    max-width: 8rem;
-    
-    padding: 2rem;
-    object-fit: contain;
+.productImg{
+   width: 10rem;
+   height: 15rem;
+   object-fit: contain;
 }
 
 .mainContainer{
     padding: 1rem;
-    
+   
 }
 
 .cartContainer{
@@ -16,6 +15,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    
 }
 
 .productCard{
@@ -63,13 +63,48 @@
 }
 
 .title{
-
     text-align: center;
-
     background-color: var(--main-color);
     color: white;
     margin: 0px;
     padding: 1.2rem;
+    
+}
 
- 
+
+
+@media (max-width: 375px){
+    .productImg{
+        width: 7rem !important;
+    }
+    .productCard{
+        font-size: 0.7rem !important;
+        
+    }
+    .removeBtn{
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 480px){
+    .productImg{
+        width: 10rem;
+    }
+    .productCard{
+        font-size: 0.7rem;
+        
+    }
+    .removeBtn{
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 1024px){
+    .productCard{
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        width: 60%;
+        text-align: center;
+    }
 }

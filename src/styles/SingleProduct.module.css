@@ -24,7 +24,7 @@
 }
 
 .productImage{
-    max-width: 25rem;
+    max-width: 18rem;
     object-fit: contain;
 }
 
@@ -81,7 +81,7 @@
 
 @media (max-width: 320px){
     html{
-        font-size: 90%;
+        font-size: 0.7rem !important;
     }
     
 }
@@ -106,11 +106,20 @@
     .titleContainer{
         text-align: center;
     } 
+    html{
+        font-size: 0.8rem !important;
+    }
 
 }
 
+@media (max-width: 480px){
+    html{
+        font-size: 0.9rem;
+    }
+}
 
-@media (max-width: 768px){
+
+@media (max-width: 1024px){
     .productImage{
         height: 10rem;
         max-width: 10rem;
@@ -133,18 +142,13 @@
 
 }
 
-@media (max-width: 1024px){
+@media (min-width: 1024px){
     .productImage{
         height: 25rem;
-        max-width: 18rem;
+        max-width: 15rem;
     }
     html{
         font-size: 1.1rem;
     }
 }
 
-@media (min-width: 1280px){
-    html{
-        font-size: 1.3rem;
-    }
-}
