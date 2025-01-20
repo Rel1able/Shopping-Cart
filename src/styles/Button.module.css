@@ -5,11 +5,13 @@
     font-weight: bold;
     font-size: 1.5rem;
     color: white;
-    background-color: navy;
+    background-color: var(--main-color);
     text-decoration: none;
     cursor: pointer;
 }
 
+
+
 .btn:hover{
-    background-color: rgb(1, 1, 95);
+    background-color:rgb(122, 9, 9);
 }

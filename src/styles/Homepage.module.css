@@ -13,8 +13,7 @@
 .title{
     text-align: center;
     font-size: 2rem;
-    font-weight: normal;
-    color: var(--secondary-color);
+    color: var(--additional-color1);
 }
 
 .pageContainer{
@@ -33,7 +32,7 @@
     position: relative;
     bottom: 1.5rem;
     font-weight: normal;
-    color: var(--additional-color2);
+    color: var(--additional-color1);
 }
 
 .btn{

@@ -7,7 +7,7 @@ export default function SearchBar({className, value, onChange}) {
     return (
         <div>
 
-            <input className={className} value={value} onChange={onChange} type="text"/>
+            <input placeholder="Search for a product..." className={className} value={value} onChange={onChange} type="text"/>
         </div>
         
     )
