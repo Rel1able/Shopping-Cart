@@ -6,7 +6,8 @@
 
 .mainContainer{
     padding: 1rem;
-   
+    margin: 0px;
+
 }
 
 .cartContainer{
@@ -15,6 +16,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    
     
 }
 
@@ -25,9 +27,12 @@
     width: 100%;
     border: 2px solid rgb(195, 191, 191);
     box-shadow: 2px 2px 2px gray;
-    color: rgb(74, 73, 73);
+    color: var(--additional-color1);
+    background-color: white;
 
 }
+
+
 
 .empty{
     display: flex;
@@ -64,11 +69,14 @@
 
 .title{
     text-align: center;
-    background-color: var(--main-color);
+    background-color: var(--secondary-color);
     color: white;
     margin: 0px;
     padding: 1.2rem;
-    
+}
+
+.cartContent{
+    height: 100%;
 }
 
 
@@ -106,5 +114,9 @@
         padding: 1rem;
         width: 60%;
         text-align: center;
+    }
+
+    .buttons{
+        align-items: center;
     }
 }

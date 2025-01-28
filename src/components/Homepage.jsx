@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button.jsx";
 
-export default function Homepage({title = "Welcome to the Fake Shop", description = "This is the best place to buy clothes, jewellery and electronics. "}) {
+export default function Homepage({title = "Welcome to the Resembio", description = "Electronics, clothes and even jewellery? Yes, you can buy it here. "}) {
 
     let navigate = useNavigate();
 

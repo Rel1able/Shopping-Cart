@@ -21,7 +21,7 @@ export default function SingleProduct({currency = "€"}) {
     }, [])
 
     function handleDecrement() {
-        if (amount > 0) {
+        if (amount > 1) {
             setAmount(a => a - 1);
         }
         
@@ -35,13 +35,9 @@ export default function SingleProduct({currency = "€"}) {
 
 
     function handleAddToCart() {
-        if (amount > 0) {
-            checkDuplicates();
-            navigate("/cart");
-        } else {
-            alert("You should add more than 0 products");
-        }
-       
+        checkDuplicates();
+        navigate("/cart");
+        
     }
     function checkDuplicates() {
         let exist = cartItems.find(item => item.id === targetProduct.id);
@@ -69,14 +65,18 @@ export default function SingleProduct({currency = "€"}) {
                     <img className={styles.productImage} src={product.image} />
                     <div className={styles.titleContainer}>
                         <h1>{product.title}</h1>
-                        <h2>{amount > 0 ? product.price * amount : product.price} {currency}</h2>
+                        <h2>{(amount * product.price).toFixed(2)} {currency}</h2>
                         <h3 className={styles.description}>{product.description}</h3>
-                         <h2 className={styles.rating}>{product.rating.rate} <Star fill="gold" color="gold" /></h2>
-                        <h2  className={styles.quantityContainer}><Button addClass={styles.quantityBtn} onClick={handleDecrement} text="-"/> <div  className={styles.quantity}>{amount} </div> <Button addClass={styles.quantityBtn} onClick={handleIncrement} text="+" /></h2>
+                        <h2 className={styles.rating}>{product.rating.rate} <Star fill="gold" color="gold" /></h2>
+                        <div className={styles.buttons}>
+                            <div className={styles.quantityContainer}>
+                                <Button addClass={styles.quantityBtn} onClick={handleDecrement} text="-" />
+                                <div className={styles.quantity}>{amount} </div>
+                                <Button addClass={styles.quantityBtn} onClick={handleIncrement} text="+" />
+                            </div>
+                            <Button addClass={styles.addButton} onClick={handleAddToCart} text="Add to the cart"/>
+                        </div>
                     </div>
-                </div>
-                <div className={styles.buttons}>
-                    <Button onClick={handleAddToCart} text="Add to the cart"/>
                 </div>
             </div>
         </div>

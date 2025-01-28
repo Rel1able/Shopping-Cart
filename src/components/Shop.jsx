@@ -3,11 +3,16 @@ import { Link, useOutletContext } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Star, Search } from "lucide-react";
 import SearchBar from "./SearchBar.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Shop({errorMsg = "A network error was encountered", sectionName = "Shop", currency = "€"}) {
     const [inputValue, setInputValue] = useState("");
     const { loading, error, products } = useOutletContext();
+
+    useEffect(() => {
+            window.scrollTo(0, 0);
+        })
+
     if (loading) return <div className={styles.loading}>Loading...</div>
     if (error) return <h1>{errorMsg}</h1>
     

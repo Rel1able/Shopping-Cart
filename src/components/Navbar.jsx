@@ -3,7 +3,7 @@ import styles from "../styles/Navbar.module.css";
 import PropTypes from "prop-types";
 import { ShoppingCart } from "lucide-react";
 
-export default function Navbar({ shopName = "Fake Shop",homepage = "Home", shop = "Shop", cartCount}) {
+export default function Navbar({ shopName = "Resembio",homepage = "Home", shop = "Shop", cartCount}) {
     return (
         <nav>
             <ul className={styles.container}>

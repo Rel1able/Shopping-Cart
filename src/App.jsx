@@ -29,8 +29,8 @@ export default function App() {
                   setLoading(false);
               }
           }
-           fetchProducts(); 
-      }, [])
+      fetchProducts(); 
+  }, [])
   
   return (
     <div className="page-container">
