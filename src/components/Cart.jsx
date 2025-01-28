@@ -32,7 +32,7 @@ export default function Cart({currency = "€", emptyCartMsg ="Nothing to see he
     if (cartItems) generateTotal();
     
     return (
-        <div className={styles.cartContent}>
+        <>
             <h1 className={styles.title}>Your Cart</h1>
             <div className={styles.mainContainer}>
                 <ul className={styles.cartContainer}>
@@ -64,7 +64,7 @@ export default function Cart({currency = "€", emptyCartMsg ="Nothing to see he
                     </div>}
             
             </div>
-        </div>
+        </>
         
         
     )

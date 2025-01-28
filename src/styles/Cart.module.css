@@ -6,8 +6,9 @@
 
 .mainContainer{
     padding: 1rem;
-    margin: 0px;
+    margin: 0;
 
+    min-height: 85vh;
 }
 
 .cartContainer{
@@ -31,7 +32,8 @@
     box-shadow: 2px 2px 2px gray;
     color: var(--additional-color1);
     background-color: white;
-
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 
@@ -73,8 +75,10 @@
     text-align: center;
     background-color: var(--secondary-color);
     color: white;
-    margin: 0px;
+    margin: 0;
     padding: 1.2rem;
+
+
 }
 
 
