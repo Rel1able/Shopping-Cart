@@ -2,15 +2,11 @@ import { useOutletContext, useNavigate } from "react-router-dom";
 import styles from "../styles/Cart.module.css"
 import PropTypes from "prop-types";
 import Button from "./Button.jsx";
-import { useEffect } from "react";
+
 
 export default function Cart({currency = "€", emptyCartMsg ="Nothing to see here, the cart is empty" }) {
     const {cartItems, setCartItems} = useOutletContext();
     let navigate = useNavigate();
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    })
 
 
     function handlePurchase() {
