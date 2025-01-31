@@ -21,3 +21,10 @@ body, html{
     flex-direction: column;
     justify-content: space-between;
 }
+
+.page-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
