@@ -33,7 +33,7 @@ export default function Cart({currency = "€", emptyCartMsg ="Nothing to see he
     
     return (
         <>
-            <h1 className={styles.title}>Your Cart</h1>
+            {cartItems.length > 0 && <h1 className={styles.title}>Your Cart</h1>}
             <div className={styles.mainContainer}>
                 <ul className={styles.cartContainer}>
                     {cartItems.map((item, index) => (
