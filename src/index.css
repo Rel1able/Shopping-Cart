@@ -1,6 +1,6 @@
 :root{
-    --main-color: #004D40;
-    --secondary-color: #027562;
+    --main-color: oklch(0.432 0.095 166.913);
+    --secondary-color: oklch(0.386 0.063 188.416);
     --additional-color1: #3c3c3c;
     --additional-color2: rgb(221, 251, 237);
     --additional-color3: rgb(144, 244, 184);
@@ -13,7 +13,8 @@ body, html{
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    background-color: var(--additional-color2);
+    
+    
 }
 
 #root{
