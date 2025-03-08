@@ -92,3 +92,9 @@
     }
 
 }
+
+@media (min-width: 1024px){
+    .linkStyle{
+        font-size: 2rem;
+    }
+}
