@@ -93,8 +93,8 @@
 
 }
 
-@media (min-width: 1024px){
-    .linkStyle{
-        font-size: 2rem;
+@media (min-width: 1536px){
+    .linksContainer{
+        font-size: 1.7rem;
     }
 }
